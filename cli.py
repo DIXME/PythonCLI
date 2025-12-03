@@ -7,6 +7,7 @@ class cli:
         # "option name, ex exit": functiontodoaction()
         # we  will just order these with numbers and orginize them with numbers
         self.options = options
+        self.string = ""
     
     def refresh(self):
         # print out the ordered list
@@ -24,7 +25,10 @@ class cli:
             for length in lengths
         ]
         for i in range(0,middle):
-            string+=f"{i+1}. {keys[i]}{dists[i]}  {middle+i+1}. {keys[middle+i]}\n"
+            try: 
+                string+=f"{i+1}. {keys[i]}{dists[i]}  {middle+i+1}. {keys[middle+i]}\n"
+            except:
+                string+=f"{i+1}. {keys[i]}{dists[i]}\n"
         self.string = string
         return string
     
@@ -50,3 +54,5 @@ class cli:
             else:
                 self.do(a)
                 os.system("pause")
+
+# add simple safe input helper functions
