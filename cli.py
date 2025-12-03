@@ -8,7 +8,7 @@ class cli:
         # we  will just order these with numbers and orginize them with numbers
         self.options = options
     
-    def make(self):
+    def refresh(self):
         # print out the ordered list
         middle = round(len(self.options)/2)
         keys = list(self.options.keys()) # do this here always so that if its updated we can just get the new version (this is kindaof the whole point of having a make method)
@@ -35,6 +35,8 @@ class cli:
         self.options[list(self.options.keys())[i-1]]()
     
     def loop(self):
+        if self.string == "":
+            self.refresh()
         while True:
             os.system("cls")
             self.print()
